@@ -36,4 +36,4 @@ jobs:
         run: echo "Test"
 
       - name: Build Docker image
-        run: docker build -t my-flask-app .
+        run: docker build -t devops-app .
