@@ -34,3 +34,6 @@ jobs:
           curl -sfL https://github.com/aquasecurity/trivy/releases/download/v0.58.1/trivy_0.58.1_Linux-64bit.deb -o trivy.deb
           sudo dpkg -i trivy.deb
           sudo apt-get install -f
+          
+      - name: Scan Docker image
+        run: trivy image --severity CRITICAL,HIGH my-flask-app
