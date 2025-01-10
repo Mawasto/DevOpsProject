@@ -23,10 +23,10 @@ jobs:
           sudo apt-get install -f
 
       - name: Build Docker image
-        run: docker build -t my-flask-app .
+        run: docker build -t devops-app .
 
       - name: Scan Docker image
-        run: trivy image --severity CRITICAL,HIGH my-flask-app
+        run: trivy image --severity CRITICAL,HIGH devops-app
 
       - name: Run tests (placeholder)
         run: echo "Test"
