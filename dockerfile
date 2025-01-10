@@ -1,15 +1,10 @@
 FROM python:3.9-slim
 
-RUN apt-get update && \
-    apt-get install -y \
-    curl \
-    jq \
-    apt-transport-https \
-    ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN curl -sfL https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.33.0_Linux-64bit.deb -o trivy.deb && \
-    sudo dpkg -i trivy.deb
+RUN apt-get update && apt-get install -y wget \
+    && wget https://github.com/aquasecurity/trivy/releases/download/v0.58.1/trivy_0.58.1_Linux-64bit.deb -O trivy.deb \
+    && dpkg -i trivy.deb \
+    && rm trivy.deb \
+    && apt-get install -f -y
 
 WORKDIR /app
 COPY . /app
