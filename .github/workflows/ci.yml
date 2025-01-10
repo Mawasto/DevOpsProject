@@ -12,19 +12,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.9
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Run tests (placeholder)
-        run: echo "Test"
+      - name: Install Trivy
+        run: |
+          curl -sfL https://github.com/aquasecurity/trivy/releases/download/v0.58.1/trivy_0.58.1_Linux-64bit.deb -o trivy.deb
+          sudo dpkg -i trivy.deb
+          sudo apt-get install -f
 
       - name: Build Docker image
         run: docker build -t devops-app .
+
+      - name: Scan Docker image
+        run: trivy image --severity CRITICAL,HIGH devops-app
+
+      - name: Run tests (placeholder)
+        run: echo "Test"
