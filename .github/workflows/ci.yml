@@ -23,6 +23,13 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Install Trivy
+        run: |
+          curl -sfL https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.33.0_Linux-64bit.deb -o trivy.deb
+          sudo dpkg -i trivy.deb
+          sudo apt-get install -f
+          trivy --version  # Sprawdzanie, czy Trivy zostało poprawnie zainstalowane
+
       - name: Run tests (placeholder)
         run: echo "Test"
 
