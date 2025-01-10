@@ -1,5 +1,5 @@
-Dokumentacja Projektu Zaliczeniowego – Cykl życia i narzędzia DevOps
-<h1>Cel Projektu</h1>
+<h1>Dokumentacja Projektu Zaliczeniowego – Cykl życia i narzędzia DevOps</h1>
+<h2>Cel Projektu</h2>
 Celem projektu było stworzenie i zarządzanie prostą aplikacją webową wykorzystując narzędzia DevOps, w tym automatyzację procesu CI/CD, konteneryzację aplikacji oraz wykorzystanie narzędzi do analizy bezpieczeństwa. Projekt obejmował stworzenie aplikacji w Pythonie przy użyciu frameworka Flask, zbudowanie jej obrazu w Dockerze, a także zautomatyzowanie procesu budowy, testów i skanowania bezpieczeństwa z wykorzystaniem GitHub Actions.
 
 <h2>Struktura Repozytorium</h2>
